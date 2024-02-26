@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Coffee Bar</title>
+    <style>
+        body {
+            background-color: rgb(248, 234, 202); 
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .right-side {
+            float: right;
+            margin: 20px; 
+            text-decoration: none;
+            color: black; 
+            font-size: 40px; 
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .left-side {
+            float: left;
+            color: rgb(206, 109, 70);
+            font-size: 40px;
+            text-decoration: none;
+            margin: 10px; 
+        }
+
+        .center-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .message {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .button-grid {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 100px;
+        }
+
+        .button {
+            text-decoration: none;
+            display: inline-block;
+            padding: 80px;
+            background-color: rgb(167, 149, 119); 
+            color: white;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: rgb(147, 129, 99);
+        }
+
+        .order-section {
+            position: absolute;
+            top: 20%;
+            right: 5%;
+            border: 2px solid black;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .order-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .order-button {
+            text-decoration: none;
+            display: block;
+            margin-top: auto;
+            padding: 10px;
+            background-color: rgb(167, 149, 119); 
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .order-button:hover {
+            background-color: rgb(147, 129, 99);
+        }
+
+        /* Added new class for selected items in the cart */
+        .selected-item {
+            background-color: rgb(117, 104, 84);
+        }
+    </style>
+</head>
+<body>
+    <a href="order_Status.html" class="right-side">Order Status</a>
+    <a href="index.html" class="left-side">Coffee Order<br>System</a>
+
+    <div class="message">Add The Condiments</div>
+
+    <div class="button-grid">
+        <a href="#" class="button" onclick="addToCart('Milk')">Milk</a>
+        <a href="#" class="button" onclick="addToCart('Mocha')">Mocha</a>
+        <a href="#" class="button" onclick="addToCart('Soy')">Soy</a>
+        <a href="#" class="button" onclick="addToCart('Whip')">Whip</a>
+    </div>
+
+    <div class="order-section" id="orderSection">
+        <div class="order-text">My Order</div>
+        <a href="selectBeverage.html" class="order-button" id="beverageItem">House Blend</a>
+        <a href="orderPlaced.html" class="order-button" style="margin-top: 20px;">Submit Order</a>
+    </div>
+
+    <script>
+        function addToCart(item) {
+            // Check if the item is already in the cart
+            var cartItem = document.getElementById(item);
+            if (cartItem) {
+                removeFromCart(item);
+            } else {
+                // Create a new item in the cart
+                var orderSection = document.getElementById('orderSection');
+                var newCartItem = document.createElement('a');
+                newCartItem.href = '#';
+                newCartItem.classList.add('order-button', 'selected-item');
+                newCartItem.id = item;
+                newCartItem.innerText = item;
+                newCartItem.onclick = function() {
+                    removeFromCart(item);
+                };
+
+                // If it's the "Beverage" item, add it to the top
+                if (item === 'Beverage') {
+                    orderSection.insertBefore(newCartItem, orderSection.children[2]);
+                } else {
+                    orderSection.insertBefore(newCartItem, orderSection.children[orderSection.children.length - 1]);
+                }
+            }
+        }
+
+        function removeFromCart(item) {
+            var cartItem = document.getElementById(item);
+            if (cartItem) {
+                cartItem.remove();
+            }
+        }
+
+    </script>
+</body>
+</html>

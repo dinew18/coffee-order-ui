@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Coffee Bar</title>
+    <style>
+        body {
+            background-color: rgb(248, 234, 202); 
+            margin: 0; /* Remove default margin */
+            overflow: hidden; /* Prevent horizontal scrollbar due to margin */
+        }
+
+        .right-side {
+            float: right;
+            margin: 20px; 
+            text-decoration: none;
+            color: black; 
+            font-size: 40px; 
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .left-side {
+            float: left;
+            color: rgb(206, 109, 70);
+            font-size: 40px;
+            text-decoration: none;
+            margin: 10px; 
+        }
+
+        .center-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .center-btn {
+            text-decoration: none;
+            display: inline-block;
+            padding: 90px; /* Adjust the padding as needed for height and width */
+            background-color: transparent; 
+            color: black;
+            font-size: 36px; /* Adjust the font size as needed */
+            border: none;
+            cursor: pointer;
+        }
+
+        .center-btn:hover {
+            background-color: rgb(147, 129, 99);  /* Change color on hover */
+        }
+
+        .no-click {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <a href="selectBeverage.html" class="center-btn no-click">Order Placed:<br>Order ID: 24<br>Dark roast with milk and double mocha<br>Total: 4.50</a>
+    </div>
+    <a href="orderStatus.html" class="right-side">Order Status</a>
+    <a href="index.html" class="left-side">Coffee Order<br>System</a>
+</body>
+</html>

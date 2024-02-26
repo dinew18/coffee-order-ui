@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Coffee Bar</title>
+    <style>
+        body {
+            background-color: rgb(248, 234, 202); 
+            margin: 0; /* Remove default margin */
+            overflow: hidden; /* Prevent horizontal scrollbar due to margin */
+        }
+
+        .right-side {
+            float: right;
+            margin: 20px; 
+            text-decoration: none;
+            color: black; 
+            font-size: 40px; 
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .left-side {
+            float: left;
+            color: rgb(206, 109, 70);
+            font-size: 40px;
+            text-decoration: none;
+            margin: 10px; 
+        }
+
+        .center-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .message {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .button-grid {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 100px; /* Adjust the padding between buttons */
+        }
+
+        .button {
+            text-decoration: none;
+            display: inline-block;
+            padding: 80px; /* Adjust the padding as needed for height and width */
+            background-color: rgb(167, 149, 119); 
+            color: white;
+            font-size: 20px; /* Adjust the font size as needed */
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: rgb(147, 129, 99);  /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+    <a href="order_Status.html" class="right-side">Order Status</a>
+    <a href="index.html" class="left-side">Coffee Order<br>System</a>
+
+    <div class="message">Select Beverage</div>
+
+    <div class="button-grid">
+        <a href="darkRoast.html" class="button">Dark Roast</a>
+        <a href="espresso.html" class="button">Espresso</a>
+        <a href="houseBlend.html" class="button">House Blend</a>
+        <a href="decaf.html" class="button">Decaf</a>
+    </div>
+</body>
+</html>
